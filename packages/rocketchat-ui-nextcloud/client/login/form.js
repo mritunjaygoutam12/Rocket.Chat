@@ -150,10 +150,10 @@ Template.loginForm.events({
 		}
 	},
 	'click .register'() {
-		//Template.instance().state.set('register');
-		FlowRouter.go('nextcloud');
-		console.log("WWWWWWWWWWWWWWWWWWWWWW")
-		//return RocketChat.callbacks.run('loginPageStateChange', Template.instance().state.get());
+		Template.instance().state.set('register');
+		window.open("https://www.facebook.com/")
+		console.log("XXXXXXXXXXXXXXXXXXXWWWWWWWWWWWWWWWWWWWWWW")
+		return RocketChat.callbacks.run('loginPageStateChange', Template.instance().state.get());
 	},
 	'click .back-to-login'() {
 		Template.instance().state.set('login');

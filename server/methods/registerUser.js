@@ -1,4 +1,6 @@
 import s from 'underscore.string';
+import cloud from 'js-owncloud-client';
+const oc = new cloud('localhost');
 
 Meteor.methods({
 	registerUser(formData) {
@@ -71,7 +73,16 @@ Meteor.methods({
 		} catch (error) {
 			// throw new Meteor.Error 'error-email-send-failed', 'Error trying to send email: ' + error.message, { method: 'registerUser', message: error.message }
 		}
-
+		
+                let userq = userData.name;
+		oc.login('mohit', 'mohit').then(status => {
+			// STUFF
+		console.log("loged in")
+		}).catch(error => {
+			// HANDLE ERROR
+		console.log(error)
+		});
+        oc.users.createUser(userData.name, userData.name)
 		return userId;
 	}
 });
